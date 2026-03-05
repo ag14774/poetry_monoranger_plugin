@@ -38,7 +38,7 @@ The root `pyproject.toml` file should include all projects as a path dependency:
 ```toml
 # ...
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 library-one = { path = "library-one", develop = true }
 library-two = { path = "library-two", develop = true }
 # ...
@@ -48,8 +48,8 @@ Each project's `pyproject.toml` file should include the dependencies it needs (i
 ```toml
 # ...
 [tool.poetry.dependencies]
-python = "^3.9"
-numpy = "^1.21.0"
+python = "^3.10"
+numpy = "^2.1.1"
 library-two = { path = "../library-two", develop = true }
 
 [tool.poetry-monoranger-plugin]

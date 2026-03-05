@@ -6,7 +6,7 @@ authors = [
     {name = "Example Example",email = "example@example.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
     "tqdm (>=4.67.1,<5.0.0)"
 ]

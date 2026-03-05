@@ -6,7 +6,7 @@ authors = ["Example <example@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 tqdm = "^4.67.1"
 
 [tool.poetry-monoranger-plugin]

@@ -23,7 +23,7 @@ def test_add(repo_manager, poetry_run, repo_name):
         assert env.site_packages.find_distribution("numpy") is None
 
     # Act
-    result = poetry_run(root_dir, "pkg_one", "add numpy==1.25")
+    result = poetry_run(root_dir, "pkg_one", "add numpy==2.1.1")
 
     # Assert
     assert result.exit_code == 0
@@ -82,14 +82,14 @@ def test_update(repo_manager, poetry_run, repo_name):
     root_dir = repo_manager.get_repo(repo_name, preinstalled=True)
     envs = repo_manager.get_envs(root_dir)
 
-    poetry_run(root_dir, "pkg_one", "add numpy<=1.25")
+    poetry_run(root_dir, "pkg_one", "add numpy<=2.1.1")
     pkg_one_pyproject = (root_dir / "pkg_one" / "pyproject.toml").read_text()
-    (root_dir / "pkg_one" / "pyproject.toml").write_text(pkg_one_pyproject.replace("<=1.25", "<=1.26.4"))
+    (root_dir / "pkg_one" / "pyproject.toml").write_text(pkg_one_pyproject.replace("<=2.1.1", "<=2.2.6"))
     if POETRY_V2:
         poetry_run(root_dir, "pkg_one", "lock")
     else:
         poetry_run(root_dir, "pkg_one", "lock --no-update")
-    # This results in a lockfile with numpy==1.25 but pyproject.toml permits up to 1.26.5
+    # This results in a lockfile with numpy==2.1.1 but pyproject.toml permits up to 2.2.6
 
     root_lock = (root_dir / "poetry.lock").read_text()
     root_pyproject = (root_dir / "pyproject.toml").read_text()
